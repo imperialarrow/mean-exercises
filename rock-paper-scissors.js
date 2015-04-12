@@ -8,7 +8,7 @@ if (compChoice <= 0.33){
 	compChoice = 'scissors';
 }
 var choice = ask.question('Choose one: rock, paper, or scissors\n');
-var userChoice = choice.toLowerCase;
+var userChoice = choice.toLowerCase();
 switch(userChoice) {
 	case 'rock':
 		if(compChoice === 'rock'){
