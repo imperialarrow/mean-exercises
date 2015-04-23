@@ -17,14 +17,16 @@ var eggType = type[Math.floor(Math.random() * 5)];
 
 var monsterMood = mood[Math.floor(Math.random() * 3)];
 
+var newMonster = new monster(eggType, monster.name, 100, monsterMood);
+
 
 var startGame = function(){
   console.log('A new egg has appeared! This egg is from the rare lineage of ' + eggType + '. The egg is hatching!');
   newMonster.name = ask.question('What will you call it?\n');
-  var newMonster = new Monster(eggType, monster.name, 100, monsterMood)
 };
 
 startGame();
+
 
 
 function behavior(monsterMood){
@@ -40,7 +42,9 @@ function behavior(monsterMood){
 var timeTillDeath = function(){
 	behavior()
 	console.log(newMonster.name + '\'s health is: ' + newMonster.health);
-		monster.health -= 10;
+		newMonster.health -= 10;
+	console.log('What do you want to do to take care of ' +newMonster.name + '?')
+	ask.question('You can choose one of these: ' + mood.toString())
 };
 
 setInterval(timeTillDeath, 5000)
